@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="index" extends="struts-default,json-default">
+      <action name="login"
+      		class="com.test.action.IndexAction"
+      		method="login">
+      </action>
+      <action name="managerLogin"
+      		class="com.test.action.IndexAction"
+      		method="managerLogin">
+      		<result name="fail"></result>
+      		<result type="json">
+                <param name="root">result<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 --></param>
+            </result>
+      </action>
+      <action name="exit"
+      		class="com.test.action.IndexAction"
+      		method="exit">
+      </action>
+      <action name="index"
+      		class="com.test.action.IndexAction"
+      		method="execute">
+      		<result name="success">/Index.jsp</result>
+      </action>
+      <action name="managerIndex"
+      		class="com.test.action.IndexAction"
+      		method="managerIndex">
+      		<result name="success">/managerIndex.jsp</result>
+      </action>
+      <action name="queryByPage"
+      		class="com.test.action.IndexAction"
+      		method="queryByPage">
+      		<result name="success">/Index.jsp</result>
+      		<result name="managerSuccess">/managerIndex.jsp</result>
+      </action>
+      <action name="addCart"
+      		class="com.test.action.IndexAction"
+      		method="addCart">
+      </action>
+      <action name="addUser"
+      		class="com.test.action.IndexAction"
+      		method="addUser">
+      		<result name="success">/Index.jsp</result>
+      </action>
+      <action name="deleteGood"
+      		class="com.test.action.IndexAction"
+      		method="deleteGood">
+      </action>
+   </package> 
+   <package name="cart" extends="struts-default">
+   		<action name="cart"
+   			class="com.test.action.CartAction"
+   			method="execute">
+   		<result name="success">/cart.jsp</result>
+   		<result name="failed">/Index.jsp</result>
+   		</action>
+   		<action name="cartOrder"
+   			class="com.test.action.CartAction"
+   			method="cartOrder">
+   		<result name="success">/cart.jsp</result>
+   		<result name="failed">/Index.jsp</result>
+   		</action>
+		<action name="buyGood"
+   			class="com.test.action.CartAction"
+   			method="buyGood">
+   		<result name="success">/cart.jsp</result>
+   		</action>
+   		<action name="deleteCart"
+   			class="com.test.action.CartAction"
+   			method="deleteCart">
+   		<result name="success">/cart.jsp</result>
+   		</action>
+   </package>
+   <package name="record" extends="struts-default">
+      <action name="record"
+      		class="com.test.action.RecordAction"
+      		method="execute">
+      <result name="success">/record.jsp</result>
+      <result name="failed">/Index.jsp</result>
+      </action>
+      <action name="getMyPublished"
+      		class="com.test.action.RecordAction"
+      		method="getMyPublished">
+      <result name="success">/my-published.jsp</result>
+      <result name="failed">/Index.jsp</result>
+      </action>
+      <action name="deletePublished"
+      		class="com.test.action.RecordAction"
+      		method="deletePublished">
+      </action>
+      <action name="publishGood"
+      		class="com.test.action.RecordAction"
+      		method="publishGood">
+      		<result name="success">/my-published.jsp</result>
+      		<result name="failed">/Index.jsp</result>
+      </action>
+   </package>
+   <package name="evaluation" extends="struts-default">
+      <action name="evaluation"
+      		class="com.test.action.EvaluationAction"
+      		method="execute">
+      <result name="success">/evaluation.jsp</result>
+      <result name="failed">/Index.jsp</result>
+      </action>
+      <action name="deleteEvaluation"
+      		class="com.test.action.EvaluationAction"
+      		method="deleteEvaluation">
+      </action>
+      <action name="addEvaluation"
+      		class="com.test.action.EvaluationAction"
+      		method="addEvaluation">
+      </action>
+   </package>
+   <package name="detail" extends="struts-default">
+      <action name="detail"
+      		class="com.test.action.DetailAction"
+      		method="execute">
+      <result name="success">/detail.jsp</result>
+      <result name="failed">/Index.jsp</result>
+      </action>
+   </package>
+   <package name="manager" extends="struts-default">
+      <action name="manager"
+      		class="com.test.action.ManagerAction"
+      		method="execute">
+      <result name="success">/managerUser.jsp</result>
+      <result name="failed">/managerIndex.jsp</result>
+      </action>
+      <action name="editUser"
+      		class="com.test.action.ManagerAction"
+      		method="editUser">
+      </action>
+   </package>
+</struts>
